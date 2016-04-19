@@ -14,7 +14,7 @@ This file is created by Marboo<http://marboo.io> template file $MARBOO_HOME/.med
 
 1. Markdown([示例](./样例笔记.md))
 2. reStructured Text([示例](./reStructuredTEXT-guide.rst))
-3. Org-mode([示例](./org-mode.org))
+3. Org-mode([示例](./org-mode-note.org))
 4. Textile([示例](Textile例子.textile))
 5. Txt2tags([示例](txt2tags例子.t2t))
 
