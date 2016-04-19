@@ -1,0 +1,221 @@
+#+TITLE: org-mode学习笔记
+#+AUTHOR: amoblin <amoblin@gmail.com>
+#+DATE: 2013-12-14 13:21:44
+#+OPTIONS: ^:nil
+
+* 链接
+C-c C-i 编辑链接
+C-c C-o 打开链接
+* 图片
+插入图片：
+#+BEGIN_SRC org-mode
+[[./snow.jpg]]
+#+END_SRC
+效果如下：
+[[./snow.jpg]]
+* 表格
+当前Cell使用公式的话，输入 :=vsum($2..$3) ，C-c C-c，就自动转换为TBLFM格式
+输入 :=vsum(@2..@3) 进行列计算
+在TBLF行输入 C-c C-c 更新结果
+
+|         |     |     |     |
+|---------+-----+-----+-----|
+| C-c C-c | 1.5 | 2.3 | 3.8 |
+|         | 2.5 |     |     |
+|         |  4. |     |     |
+#+TBLFM: @2$4=vsum($2..$3)::@4$2=vsum(@2..@3)
+
+* 代码
+|              |   |            |
+|--------------+---+------------|
+| <s<TAB>      |   | 插入代码段 |
+| 代码区 C-c ' |   | 编辑代码   |
+| 空行 C-c '   |   | 绘制Ascii图像  |
+* 嵌入元数据
+
+#+CAPTION: 嵌入元数据
+
+| 快捷键 | 内容                          | 说明 |
+|--------+-----------------------------------+------|
+| s      | #+ begin_src ... #+ end_src       |      |
+| e      | #+ begin_example ... #+ end_example |      |
+| q      | #+ begin_quote ... #+ end_quote   |      |
+| v      | #+ begin_verse ... #+ end_verse   |      |
+| c      | #+ begin_center ... #+ end_center |      |
+| l      | #+ begin_latex ... #+ end_latex   |      |
+| L      | #+latex:                          |      |
+| h      | #+ begin_html ... #+ end_html     |      |
+| H      | #+html:                           |      |
+| a      | #+ begin_ascii ... #+ end_ascii   |      |
+| A      | #+ascii:                          |      |
+| i      | #+index: line                     |      |
+| I      | #+include: line                   |      |
+
+输入 <s<TAB>即自动替换为对应内容。
+
+#+BEGIN_SRC python
+  import sys
+  import os
+  os.path.dir("/a/b/c")
+  print "hello"
+#+END_SRC
+* 日历
+
+| 快捷键    | 命令 | 说明                     |
+|-----------+------+--------------------------|
+| C-c .     |      | 在当前位置插入一个时间戳 |
+| C-c C-d   |      | 设定截止日期             |
+| C-c C-s   |      | 设定计划                 |
+| C-u C-c . |      | 精确时间戳               |
+| C-c <     |      | 直接插入时间戳           |
+| C-c >     |      | 查看日历                 |
+| C-c C-o   |      | 访问当前时间的日程表     |
+|           |      |                          |
+* 大纲
+|        | 向前    | 向后    |
+|--------+---------+---------|
+| 同级   | C-c C-f | C-c C-b |
+| 跨级   | C-c C-n | C-c C-p |
+| 上一级 | C-c C-u |         |
+| 跳转   | C-c C-j |         | 
+
+修改分支结构：
+
+| 快捷键    | 命令                               | 说明             |
+|-----------+------------------------------------+------------------|
+| C-RET     | org-insert-heading-respect-content | 加入新的同级标识 |
+| M-<left>  | org-do-promote                     | 提升标题等级     |
+| M-<right> | org-do-demote                      | 降低标题等级     |
+
+http://blog.csdn.net/xorochi/article/details/6232760
+
+* 工作流
+C-c C-t来切换工作流
+** 缺陷管理
+#+BEGIN_SRC org-mode
+#+TODO: REPORT(r) BUG(b) KNOWNCAUSE(k) | FIXED(f)
+#+END_SRC
+** 待办事项
+#+BEGIN_SRC org-mode
+#+TODO: TODO(t) | DOING(i) | DONE(d)
+#+END_SRC
+* 导出PDF
+** 安装latex包：  wrapfig ulem marvosym wasysym 
+* 幻灯片
+  http://orgmode.org/worg/exporters/beamer/tutorial.html
+http://orgmode.org/worg/org-tutorials/non-beamer-presentations.html
+** epresent
+Emacs的辅模式，Emacs终端里的幻灯片。
+** org-s5
+https://github.com/sigma/org-s5
+S5幻灯片的界面挺丑的，用org-mode写也改变不了这一点。
+** org-html5presentation
+Deom: http://kinjo.github.io/org-html5presentation.el/#landing-slide
+** org-reveal
+*** 问题及解决
+http://sigmundtzeng.blogspot.com/2015/04/org-modeslide.html
+
+org with reveal.js 也一般
+https://github.com/yjwen/org-reveal/
+** org-tree-slide
+日本人写的，没用过。
+** org-slides
+https://github.com/cybercode/org-slides
+提供deck.js的支持
+** org-tree-slide
+又是一个辅模式。Geek就不能用漂亮的界面吗？！
+** orgmode-slideshow
+全靠图片，打开太慢。http://www.mauc.nl/presentations/test.html
+** org-impress-js
+ https://github.com/kinjo/org-impress-js.el
+** Beamer幻灯片
+安装Latex包：beamer
+* 论文
+脚注[fn:1]
+
+[fn:1] 这就是脚注
+* 导出
+| 快捷键  | 命令 | 说明 |
+|---------+------+------|
+| C-c C-e |      | 导出 |
+|         |      |      |
+** HTML配色
+http://thomasf.github.io/solarized-css/
+* 工具
+| 名称            | 地址                                                       | 语言    |   |
+|-----------------+------------------------------------------------------------+---------+---|
+| org-mode-parser | https://github.com/daitangio/org-mode-parser               | node.js |   |
+| orgnode         | http://members.optusnet.com.au/~charles57/GTD/orgnode.html | Python  |   |
+
+** orgnode
+** https://github.com/daitangio/org-mode-parser
+* Babel
+
+#+BEGIN_SRC ruby
+
+:results output replace
+
+require 'date'
+"This file was last evaluated on #{Date.today}"
+#+END_SRC
+
+#+BEGIN_SRC sh :exports both :results output :eval no-export
+  figlet 'china xing !'    
+#+END_SRC
+
+#+RESULTS:
+* batch模式的诡异问题
+#+BEGIN_SRC sh
+$ emacs --batch --eval "(message (version))" --eval "(package-initialize)" --eval "(message (org-version))"
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+8.2.5h
+
+
+$ emacs --batch --eval "(message (version))" --eval "(package-initialize)" --eval "(message (org-version))" test.org
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+8.2.5h
+Loading vc-git...
+
+
+$ emacs test.org --batch --eval "(message (version))" --eval "(package-initialize)" --eval "(message (org-version))"
+OVERVIEW
+Loading vc-git...
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+7.9.3f
+
+$ emacs --batch --eval "(message (version))" --eval "(message (org-version))" --eval "(package-initialize)" --eval "(message (org-version))"
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+7.9.3f
+7.9.3f
+$ emacs test.org --batch --eval "(message (version))" --eval "(message (org-version))" --eval "(package-initialize)" --eval "(message (org-version))"
+
+OVERVIEW
+Loading vc-git...
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+7.9.3f
+7.9.3f
+
+$ emacs --batch --eval "(message (version))" --eval "(message (org-version))" --eval "(package-initialize)" --eval "(message (org-version))" test.org
+GNU Emacs 24.3.1 (x86_64-apple-darwin13.1.0, NS apple-appkit-1265.19)
+ of 2014-04-02 on amoblin.local
+7.9.3f
+7.9.3f
+Problems while trying to load feature `org-gnus'
+Problems while trying to load feature `org-jsinfo'
+OVERVIEW
+Loading vc-git...
+
+#+END_SRC
+
+
+* 参考
+- [[http://dayigu.github.io/WhyUseOrgModeToWriteBlog.html][为什么用 org-mode 写 blog？]]
+- http://www.cnblogs.com/qlwy/archive/2012/06/15/2551034.html#sec-4-6
+- http://holbrook.github.io/2012/04/12/emacs_orgmode_editor.html
+- http://www.lijigang.com/blog/2015/07/18/2015%E5%B9%B46%E6%9C%88%E4%B8%8A%E6%97%AC%E6%8A%80%E8%83%BD%E3%80%8Corg-mode%E3%80%8D/
+- http://www.cnblogs.com/Open_Source/archive/2011/07/17/2108747.html#sec-5
