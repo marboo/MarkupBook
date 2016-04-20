@@ -8,7 +8,7 @@ This file is created by Marboo<http://marboo.io> template file $MARBOO_HOME/.med
 本文件由 Marboo<http://marboo.io> 模板文件 $MARBOO_HOME/.media/starts/default.md 创建
 -->
 
-这里包含各种轻量级标记语言文件和自定义的标记语言文件示例，主要用来检验工具对标记语言的支持效果。
+这里包含各种[轻量级标记语言](https://en.wikipedia.org/wiki/Lightweight_markup_language)文件和自定义的标记语言文件示例，主要用来检验工具对标记语言的支持效果。
 
 目前包含的轻量级标记语言类型有：
 
@@ -22,3 +22,20 @@ This file is created by Marboo<http://marboo.io> template file $MARBOO_HOME/.med
 
 1. remark.md (基于remark.js的Markdown扩展，示例[像黑客一样使用 Linux 命令行.remark.md](像黑客一样使用 Linux 命令行.remark.md))
 2. vextab.txt (基于vextab的记谱语法，示例[谱曲.vextab.txt](谱曲.vextab.txt))
+
+
+## 轻量级标记语言的支持效果
+
+工具 | Markdown | reStructured Text | Org-mode | Textile | Txt2tags
+-----+----------+-------------------+----------+---------+----------
+GitHub | √ | √ | √ | √ |  |
+Gollum | √ | √ | √ | √ | √ |
+Marboo | √ | √ | √ | √ | √ |
+
+## Markdown的支持效果
+
+工具 | 原生Markdown | GFM表格| 表格 | 公式 | 脚注 | Task List | 文件跳转 | 图片设置size | 流程图 |
+-----+--------------+------+------+------+-----------+----------+--------------+--------+--------|
+Mou | √ | √ |  | √ | √ | √ | √ | √ | √ | √ |
+MacDown | √ | √ | √ | √ | √ | √ | √ |  | √ |
+Marboo | √ | √ | √ | √ | √ | √ | √ |  | √ |
